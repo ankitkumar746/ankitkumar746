@@ -14,6 +14,8 @@ Platform Engineer specialized in hybrid (bare-metal and cloud) infrastructure, w
 
 ## 🔥 My Stats
 [![GitHub Streak](http://github-readme-streak-stats.herokuapp.com?user=ankitkumar746&theme=dark)](https://git.io/streak-stats)
+![GitHub Streak](http://github-readme-streak-stats.herokuapp.com?user=ankitkumar746&theme=dark)
+![GitHub Streak](http://github-readme-streak-stats.herokuapp.com?user=ankitkumar746&theme=dark&background=000000)
 
 <!---
 ![GitHub stats](https://github-readme-stats.vercel.app/api?username=ankitkumar746&theme=dark&show_icons=true)
