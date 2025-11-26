@@ -13,9 +13,7 @@ Platform Engineer specialized in hybrid (bare-metal and cloud) infrastructure, w
 - **Also worked with             :** ClickHouse, Kafka, MongoDB, MongoProxy, Jenkins, Telegraf, Cilium, Envoy, iPXE, DNS
 
 ## 🔥 My Stats
-![GitHub Streak](http://github-readme-streak-stats.herokuapp.com?user=ankitkumar746&theme=dark&background=000000)
-
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=ankitkumar746&layout=compact&theme=dark)
+[![GitHub Streak](http://github-readme-streak-stats.herokuapp.com?user=ankitkumar746&theme=dark)](https://git.io/streak-stats)
 
 <!---
 ![GitHub stats](https://github-readme-stats.vercel.app/api?username=ankitkumar746&theme=dark&show_icons=true)
