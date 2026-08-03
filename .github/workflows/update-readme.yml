@@ -28,7 +28,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_USERNAME: ankitkumar746
-        run: python today.py
+        run: python script.py
 
       - name: Commit changes
         run: |
