@@ -29,7 +29,7 @@ import sys
 from io import BytesIO
 
 import requests
-from PIL import Image
+from PIL import Image, ImageOps, ImageFilter
 
 COLS = 40
 ROWS = 25
@@ -48,9 +48,23 @@ def fetch_avatar(username):
     return Image.open(BytesIO(r.content))
 
 
-def render(img, cols, rows, invert):
-    """Return a list of `rows` strings, each `cols` wide."""
+def render(img, cols, rows, invert, contrast=True, gamma=1.15, sharpen=True):
+    """Return a list of `rows` strings, each `cols` wide.
+
+    Image enhancements (v2) for crisper facial features at low resolution:
+      - autocontrast: stretch the tonal range so shadows/highlights separate.
+      - gamma > 1: lift midtones (faces read better than under linear mapping).
+      - unsharp mask: accentuate edges (eyes, nose, mouth, glasses).
+    """
     gray = img.convert("L")
+    if contrast:
+        # ignore the darkest/lightest 1% so a single stray pixel can't set the range
+        gray = ImageOps.autocontrast(gray, cutoff=1)
+    if gamma and gamma != 1.0:
+        lut = [int(255 * (i / 255) ** (1.0 / gamma)) for i in range(256)]
+        gray = gray.point(lut)
+    if sharpen:
+        gray = gray.filter(ImageFilter.UnsharpMask(radius=1.5, percent=130, threshold=3))
     # Sample at cols x (rows*2) then average vertical pixel pairs so each
     # output character represents a 1-wide x 2-tall source region. This
     # matches the ~2:1 (taller-than-wide) aspect of monospace glyphs and
@@ -88,14 +102,25 @@ def main():
     ap.add_argument("--mode", choices=["light", "dark", "both"], default="both")
     ap.add_argument("--cols", type=int, default=COLS)
     ap.add_argument("--rows", type=int, default=ROWS)
+    ap.add_argument("--gamma", type=float, default=1.15,
+                    help="midtone lift; 1.0 disables, >1 brightens features (default 1.15)")
+    ap.add_argument("--no-contrast", dest="contrast", action="store_false",
+                    help="disable autocontrast tonal stretch")
+    ap.add_argument("--no-sharpen", dest="sharpen", action="store_false",
+                    help="disable unsharp-mask edge enhancement")
     args = ap.parse_args()
 
     img = fetch_avatar(args.username)
-    print(f"# ASCII avatar for {args.username} | source {img.size} | grid {args.cols}x{args.rows}\n")
+    print(f"# ASCII avatar for {args.username} | source {img.size} | grid {args.cols}x{args.rows}"
+          f" | contrast={args.contrast} gamma={args.gamma} sharpen={args.sharpen}\n")
     if args.mode in ("light", "both"):
-        emit(render(img, args.cols, args.rows, invert=False), "LIGHT MODE (normal ramp) -> light_mode.svg")
+        emit(render(img, args.cols, args.rows, invert=False, contrast=args.contrast,
+                    gamma=args.gamma, sharpen=args.sharpen),
+             "LIGHT MODE (normal ramp) -> light_mode.svg")
     if args.mode in ("dark", "both"):
-        emit(render(img, args.cols, args.rows, invert=True), "DARK MODE (inverted ramp) -> dark_mode.svg")
+        emit(render(img, args.cols, args.rows, invert=True, contrast=args.contrast,
+                    gamma=args.gamma, sharpen=args.sharpen),
+             "DARK MODE (inverted ramp) -> dark_mode.svg")
 
 
 if __name__ == "__main__":
