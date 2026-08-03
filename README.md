@@ -1,38 +1,33 @@
-## Hi there 👋
+<h1 align="center">Hi, I'm Ankit 👋</h1>
 
-# 👋 Hello, I'm Ankit! 
+<p align="center">
+  Infra Engineer — I don't marry a stack, I marry the problem.
+</p>
 
-Platform Engineer specialized in hybrid (bare-metal and cloud) infrastructure, with expertise in building distributed systems at scale.
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="dark_mode.svg">
+    <img alt="Ankit's GitHub Stats" src="light_mode.svg">
+  </picture>
+</p>
 
-## 🛠️ Technologies & Tools
-- **Programming Languages        :** Python
-- **Cloud Native Tools           :** Kubernetes, RKE2, Fluentd, Docker, ArgoCD, Kustomize, Helm
-- **Cloud                        :** GCP, OVH, Scaleway, AWS
-- **OS and Infrastructure as Code:** Linux (Debian and RedHat), Ansible, Terraform
-- **Observability                :** DataDog, Grafana
-- **Also worked with             :** ClickHouse, Kafka, MongoDB, MongoProxy, Jenkins, Telegraf, Cilium, Envoy, iPXE, DNS
+---
 
-## 🔥 My Stats
-[![GitHub Streak](http://github-readme-streak-stats.herokuapp.com?user=ankitkumar746&theme=dark)](https://git.io/streak-stats)
-![GitHub Streak](http://github-readme-streak-stats.herokuapp.com?user=ankitkumar746&theme=dark)
-![GitHub Streak](http://github-readme-streak-stats.herokuapp.com?user=ankitkumar746&theme=dark&background=000000)
+### 🧭 What I actually do
 
-<!---
-![GitHub stats](https://github-readme-stats.vercel.app/api?username=ankitkumar746&theme=dark&show_icons=true)
---->
+I'm infra-agnostic by design. Cloud, bare metal, hybrid — doesn't matter, I learn the stack, understand where it breaks, and help design / implement / harden it.
 
-<!---
-![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=ankitkumar746&repo=typer&theme=nightowl)
---->
+### 🎯 Where I'm headed
 
+Moving deeper into **AI infra** — workload scheduling, GPU/compute optimisation, and the platform layer that sits under model training & serving.
 
-## 🔗 Links
+### 🛠️ What I've worked on
 
-- **Website:** [Personal Portfolio](https://ankitkumarakt746.github.io/akt/)
-- **Medium:** [@ankitkumarakt746](https://medium.com/@ankitkumarakt746)
-- **RHCE & RHCSA Certification ID: :** [210-168-118](https://rhtapps.redhat.com/verify?certId=210-168-118)
+- Security hardening and policy enforcement across production Kubernetes clusters
+- Built and scaled a high-throughput logging pipeline handling multi-TB/day volumes with sub-minute latency
+- Ran hybrid clusters across bare metal and cloud, with custom provisioning pipelines (Terraform → iPXE → Ansible)
+- Cut infra and observability costs through FinOps practices and platform migrations
 
-## 📫 Get in touch
+### 📫 Reach me
 
-- **LinkedIn:** [ankit-kumar-in](https://www.linkedin.com/in/ankit-kumar-in/)
-- **Email:** [ankitkumarakt746@gmail.com](ankitkumarakt746@gmail.com)
+[LinkedIn](https://linkedin.com/in/ankit-kumar-in) · [GitHub](https://github.com/ankitkumar746) · ankitkumarakt746@gmail.com
